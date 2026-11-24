@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es" class="no-js is-loading">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.replace('no-js', 'js');
+      // Seguro: si el JS no termina de cargar en 9 s, la página se muestra igual.
+      setTimeout(function () {
+        if (d.classList.contains('is-loading')) { d.classList.remove('is-loading'); d.classList.add('load-timeout'); }
+      }, 9000);
+    })();
+  </script>
+
+  <!-- REEMPLAZAR: nombre, textos SEO y dominio -->
+  <title>FM estudio · Diseño y desarrollo de sitios web y tiendas online</title>
+  <meta name="description" content="Diseñamos y programamos sitios web y tiendas online rápidos y claros, pensados para conseguir clientes. Pide una propuesta con alcance, plazo y precio.">
+  <meta name="theme-color" content="#ECEEF0">
+  <link rel="canonical" href="https://fm.studio/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="FM estudio">
+  <meta property="og:title" content="FM estudio · Sitios web y tiendas online">
+  <meta property="og:description" content="Webs que explican lo que haces y te traen clientes. Pide una propuesta con alcance, plazo y precio.">
+  <meta property="og:url" content="https://fm.studio/">
+  <!-- REEMPLAZAR: imagen 1200×630 -->
+  <meta property="og:image" content="https://fm.studio/og-image.jpg">
+  <meta property="og:image:alt" content="Pieza 3D pulida de FM estudio sobre fondo oscuro">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%230F1216'/%3E%3Ccircle cx='16' cy='17' r='8' fill='none' stroke='%23AEB9FF' stroke-width='2'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=Martian+Mono:wght@400&display=swap">
+  <link rel="stylesheet" href="styles.css?v=2">
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script type="module" src="main.js?v=2"></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <div class="loader" id="loader" role="status" aria-live="polite">
+    <div class="loader__inner">
+      <span class="loader__brand">fm</span>
+      <span class="loader__cota" aria-hidden="true"><span class="loader__bar"></span></span>
+      <span class="loader__pct" aria-hidden="true"><span id="loader-num">0</span>&nbsp;%</span>
+      <span class="sr-only">Cargando la página</span>
+    </div>
+  </div>
+
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <canvas id="scene" role="img" aria-label="Pieza 3D que empieza como una malla en bruto y, a medida que avanzas por la página, se ensambla y termina pulida."></canvas>
+
+  <div class="readout" aria-hidden="true">
+    <span>pieza 01</span>
+    <span>estado · <b id="readout-state">boceto</b></span>
+    <span>rugosidad <b id="readout-rough">1.00</b></span>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#inicio" aria-label="FM estudio, ir al inicio">fm<span>estudio</span></a>
+    <nav class="site-nav" aria-label="Principal">
+      <ul>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--small" href="#contacto">Pedir propuesta</a>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- 1 · HERO -->
+    <section class="hero" id="inicio" tabindex="-1" data-stage="0" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero__copy">
+          <h1 id="hero-title" class="hero__title">
+            <span class="line">Webs que</span>
+            <span class="line">venden tu</span>
+            <span class="line">negocio.</span>
+          </h1>
+          <p class="lead">Diseñamos y programamos sitios web y tiendas online para marcas, startups y empresas. Rápidos, claros y pensados para que tus visitas te pidan presupuesto o compren.</p>
+          <div class="actions">
+            <a class="btn" href="#contacto">Pedir propuesta</a>
+            <a class="link" href="#proyectos">Ver proyectos</a>
+          </div>
+        </div>
+      </div>
+      <p class="hero__hint" aria-hidden="true">desliza · la pieza se termina contigo</p>
+    </section>
+
+    <!-- 2 · SERVICIOS -->
+    <section class="services" id="servicios" tabindex="-1" aria-labelledby="svc-title">
+      <div class="wrap">
+        <header class="section-head">
+          <h2 id="svc-title" class="draw">Lo que hacemos</h2>
+          <p>Todo lo que necesitas para tener una web que trabaje para tu negocio.</p>
+        </header>
+
+        <div class="split">
+          <nav class="index" aria-label="Servicios">
+            <ul>
+              <li><a href="#svc-diseno" data-index="0">Diseño web</a></li>
+              <li><a href="#svc-desarrollo" data-index="1">Desarrollo</a></li>
+              <li><a href="#svc-ecommerce" data-index="2">Tiendas online</a></li>
+              <li><a href="#svc-mantenimiento" data-index="3">Mantenimiento y SEO</a></li>
+            </ul>
+          </nav>
+
+          <div class="steps">
+            <article class="step" id="svc-diseno" tabindex="-1" data-stage="1" aria-labelledby="svc-1">
+              <h3 id="svc-1">Diseño web</h3>
+              <p>Ordenamos lo que quieres contar y lo convertimos en páginas claras que llevan a tu cliente hasta el contacto o la compra. Recibes un prototipo navegable antes de programar.</p>
+              <p class="cota">entregable · prototipo navegable</p>
+            </article>
+
+            <article class="step" id="svc-desarrollo" tabindex="-1" data-stage="2" aria-labelledby="svc-2">
+              <h3 id="svc-2">Desarrollo</h3>
+              <p>Programamos tu web a medida: rápida en móvil, segura y fácil de editar por tu equipo. Fijamos objetivos de velocidad por escrito; si no se cumplen, seguimos trabajando.</p>
+              <p class="cota">entregable · web publicada, informe de velocidad</p>
+            </article>
+
+            <article class="step" id="svc-ecommerce" tabindex="-1" data-stage="3" aria-labelledby="svc-3">
+              <h3 id="svc-3">Tiendas online</h3>
+              <p>Montamos tu tienda en Shopify, WooCommerce o a medida: catálogo, pagos, envíos y emails automáticos. Tu cliente encuentra el producto y paga en pocos pasos.</p>
+              <p class="cota">entregable · tienda conectada</p>
+            </article>
+
+            <article class="step" id="svc-mantenimiento" tabindex="-1" data-stage="4" aria-labelledby="svc-4">
+              <h3 id="svc-4">Mantenimiento y SEO</h3>
+              <p>Después del lanzamiento seguimos contigo: actualizaciones, copias de seguridad, cambios de contenido y posicionamiento en Google para que te encuentren.</p>
+              <p class="cota">entregable · informe mensual</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · PROCESO -->
+    <section class="process" id="proceso" tabindex="-1" aria-labelledby="proc-title">
+      <div class="wrap">
+        <header class="section-head">
+          <h2 id="proc-title" class="draw">Cómo trabajamos</h2>
+          <p>Cuatro fases, cada una con algo concreto que recibes. <span class="tag">plazos de ejemplo</span></p>
+        </header>
+
+        <div class="split">
+          <div class="progress" id="progress" aria-hidden="true">
+            <span class="progress__track"><span class="progress__bar"></span></span>
+            <ol>
+              <li>01</li><li>02</li><li>03</li><li>04</li>
+            </ol>
+          </div>
+
+          <ol class="steps">
+            <li class="step" data-stage="5">
+              <span class="step__num" aria-hidden="true">01</span>
+              <h3>Descubrimiento</h3>
+              <p class="cota">semana 1</p>
+              <p>Hablamos con tu equipo, revisamos tus datos y acordamos qué tiene que conseguir la web. Recibes un documento con alcance, plazos y precio cerrado.</p>
+            </li>
+            <li class="step" data-stage="6">
+              <span class="step__num" aria-hidden="true">02</span>
+              <h3>Diseño</h3>
+              <p class="cota">semanas 2 a 4</p>
+              <p>Prototipo navegable de todas las páginas, en móvil y escritorio. Lo revisas y pides cambios antes de que empecemos a programar.</p>
+            </li>
+            <li class="step" data-stage="7">
+              <span class="step__num" aria-hidden="true">03</span>
+              <h3>Desarrollo</h3>
+              <p class="cota">semanas 5 a 9</p>
+              <p>Maquetación, programación, textos y conexión con tus herramientas: pagos, formularios y analítica. Cada semana tienes un enlace de prueba para ver el avance en tu móvil.</p>
+            </li>
+            <li class="step" data-stage="8">
+              <span class="step__num" aria-hidden="true">04</span>
+              <h3>Lanzamiento</h3>
+              <p class="cota">semana 10</p>
+              <p>Publicamos, medimos el rendimiento con usuarios reales y ajustamos lo necesario durante el primer mes.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <div class="dark-zone">
+
+      <!-- 4 · PORTAFOLIO  (REEMPLAZAR: todo el contenido es de ejemplo) -->
+      <section class="work" id="proyectos" tabindex="-1" data-stage="9" aria-labelledby="work-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="work-title" class="draw">Proyectos</h2>
+            <p class="work__lede">Sitios que ya están en línea. Entrá y probalos.</p>
+          </header>
+
+          <ol class="work__list">
+            <li class="work__item">
+              <a class="work__link" href="https://dpar.pages.dev/" target="_blank" rel="noopener" aria-label="Dpar Diseños, web de una carpintería en Ramos Mejía (se abre en una pestaña nueva)">
+                <span class="work__num" aria-hidden="true">01</span>
+                <img class="work__img" src="img/dpar.jpg" alt="Portada de Dpar Diseños: título Muebles a medida en Ramos Mejía y foto de una cocina de madera" width="960" height="600" loading="lazy" decoding="async">
+                <span class="work__main">
+                  <span class="work__client">Dpar Diseños · carpintería · Ramos Mejía</span>
+                  <span class="work__title">Web de muebles a medida con presupuesto por WhatsApp</span>
+                  <span class="work__result">Cocinas, placares, vestidores y mostradores, con fotos de trabajos reales y pedido de presupuesto directo.</span>
+                </span>
+                <span class="work__cta" aria-hidden="true">Ver sitio ↗</span>
+              </a>
+            </li>
+            <li class="work__item">
+              <a class="work__link" href="https://catalogo-de-botines-ar.netlify.app/" target="_blank" rel="noopener" aria-label="Catálogo de botines con pedido por WhatsApp (se abre en una pestaña nueva)">
+                <span class="work__num" aria-hidden="true">02</span>
+                <img class="work__img" src="img/botines.jpg" alt="Portada del catálogo de botines: título grande y tarjetas por tipo de cancha" width="800" height="499" loading="lazy" decoding="async">
+                <span class="work__main">
+                  <span class="work__client">Catálogo de botines · tienda deportiva</span>
+                  <span class="work__title">Catálogo online con pedido por WhatsApp</span>
+                  <span class="work__result">191 productos con filtros por cancha, talla y marca. El cliente toca su talla y el pedido llega por WhatsApp.</span>
+                </span>
+                <span class="work__cta" aria-hidden="true">Ver sitio ↗</span>
+              </a>
+            </li>
+            <li class="work__item">
+              <a class="work__link" href="https://bqe.pages.dev/" target="_blank" rel="noopener" aria-label="bQe, landing de un boliche en Pinamar (se abre en una pestaña nueva)">
+                <span class="work__num" aria-hidden="true">03</span>
+                <img class="work__img" src="img/bqe.jpg" alt="Portada de bQe: logo grande y una bandeja de vinilo en 3D sobre fondo oscuro" width="800" height="499" loading="lazy" decoding="async">
+                <span class="work__main">
+                  <span class="work__client">bQe · boliche · Pinamar</span>
+                  <span class="work__title">Landing con venta de entradas y mesas en 3D</span>
+                  <span class="work__result">Calendario de 31 noches, entradas por sector y plano 3D para elegir mesa.</span>
+                </span>
+                <span class="work__cta" aria-hidden="true">Ver sitio ↗</span>
+              </a>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 5 · POR QUÉ NOSOTROS  (REEMPLAZAR: cifras de ejemplo) -->
+      <section class="results" id="resultados" tabindex="-1" data-stage="10" aria-labelledby="res-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="res-title" class="draw">Qué cambia en tu web</h2>
+            <p>Medimos cada proyecto antes y después del lanzamiento. <span class="placeholder-note">Cifras de ejemplo: sustitúyelas por resultados medidos.</span></p>
+          </header>
+
+          <dl class="metrics">
+            <div class="metric" style="--w:.72">
+              <dt>Conversión <span>visitas que piden propuesta o compran</span></dt>
+              <dd>
+                <span class="metric__value">+00 %</span>
+                <span class="cota-line" aria-hidden="true"></span>
+                <span class="tag">dato de ejemplo</span>
+              </dd>
+            </div>
+            <div class="metric" style="--w:.56">
+              <dt>Tiempo en página <span>media por sesión</span></dt>
+              <dd>
+                <span class="metric__value">0,0×</span>
+                <span class="cota-line" aria-hidden="true"></span>
+                <span class="tag">dato de ejemplo</span>
+              </dd>
+            </div>
+            <div class="metric" style="--w:.34">
+              <dt>Carga inicial en móvil <span>hasta ver contenido principal</span></dt>
+              <dd>
+                <span class="metric__value">0,0 s</span>
+                <span class="cota-line" aria-hidden="true"></span>
+                <span class="tag">dato de ejemplo</span>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- 6 · CONTACTO -->
+      <section class="contact" id="contacto" tabindex="-1" data-stage="11" aria-labelledby="contact-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="contact-title" class="draw">Cuéntanos qué quieres construir.</h2>
+            <p>Te enviamos una propuesta con alcance, plazo y precio. Si lo prefieres, escríbenos a <a class="link" href="mailto:hola@fm.studio">hola@fm.studio</a>.</p>
+          </header>
+
+          <form class="form" id="contact-form" novalidate>
+            <div class="field">
+              <label for="f-name">Nombre</label>
+              <input id="f-name" name="nombre" type="text" autocomplete="name" required aria-describedby="f-name-error">
+              <p class="field__error" id="f-name-error"></p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-error">
+              <p class="field__error" id="f-email-error"></p>
+            </div>
+            <div class="field">
+              <label for="f-company">Empresa <span class="optional">(opcional)</span></label>
+              <input id="f-company" name="empresa" type="text" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="f-budget">Presupuesto aproximado</label>
+              <select id="f-budget" name="presupuesto">
+                <option value="">Elige un rango</option>
+                <option>Menos de 10.000 €</option>
+                <option>10.000 – 25.000 €</option>
+                <option>25.000 – 50.000 €</option>
+                <option>Más de 50.000 €</option>
+                <option>Aún no lo sé</option>
+              </select>
+            </div>
+            <div class="field field--full">
+              <label for="f-message">¿Qué necesitas?</label>
+              <textarea id="f-message" name="mensaje" rows="4" required aria-describedby="f-message-error" placeholder="Por ejemplo: una web nueva para nuestra empresa, con tienda online, para marzo."></textarea>
+              <p class="field__error" id="f-message-error"></p>
+            </div>
+            <div class="form__foot field--full">
+              <button class="btn" type="submit">Enviar solicitud</button>
+              <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- 7 · FOOTER  (REEMPLAZAR: email, redes y enlaces legales) -->
+      <footer class="site-footer">
+        <div class="wrap">
+          <a class="footer__mail" href="mailto:hola@fm.studio">hola@fm.studio</a>
+          <ul class="footer__social" aria-label="Redes sociales">
+            <li><a href="#" data-placeholder-link>Instagram</a></li>
+            <li><a href="#" data-placeholder-link>LinkedIn</a></li>
+            <li><a href="#" data-placeholder-link>Behance</a></li>
+          </ul>
+          <div class="footer__legal">
+            <p>© 2026 FM estudio</p>
+            <ul>
+              <li><a href="#" data-placeholder-link>Aviso legal</a></li>
+              <li><a href="#" data-placeholder-link>Privacidad</a></li>
+              <li><a href="#" data-placeholder-link>Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
