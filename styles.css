@@ -536,7 +536,18 @@ html.static .dark-zone { background: var(--estudio); }
 /* 4 · Portafolio */
 .work { padding-top: calc(var(--section-pad) * 1.4); padding-bottom: var(--section-pad); }
 .work__list { grid-column: 1 / span 9; border-top: 1px solid var(--line); }
-.work__item { border-bottom: 1px solid var(--line); }
+.work__item { position: relative; border-bottom: 1px solid var(--line); }
+.work__code {
+  position: absolute;
+  right: 0;
+  bottom: 28px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-cota);
+  color: var(--fg2);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.work__code:hover { color: var(--fg); }
 .work__link {
   display: grid;
   grid-template-columns: 2.5rem minmax(140px, 240px) minmax(0, 1fr) auto;
@@ -707,6 +718,7 @@ html.js-motion .metric.is-drawn .cota-line { transform: scaleX(1); }
   .metrics, .form { grid-column: 1 / span 7; }
   .work__link { grid-template-columns: 2rem minmax(120px, 180px) minmax(0, 1fr); }
   .work__cta { display: none; }
+  .work__code { position: static; display: inline-block; margin: -12px 0 24px calc(2rem + var(--gap)); }
 }
 
 /* ---------- Móvil (≤ 767 px): el objeto ocupa la mitad superior ---------- */
@@ -730,6 +742,7 @@ html.js-motion .metric.is-drawn .cota-line { transform: scaleX(1); }
 
   .work__link { grid-template-columns: 1fr; gap: 14px; padding: 24px 0; }
   .work__num { display: none; }
+  .work__code { margin-left: 0; }
   .metric { grid-template-columns: 1fr; gap: 14px; }
   .form { grid-template-columns: 1fr; }
   .footer__mail, .footer__social { grid-column: 1 / -1; justify-content: flex-start; }
