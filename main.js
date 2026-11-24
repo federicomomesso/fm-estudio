@@ -8,7 +8,7 @@ const CONFIG = {
   FORM_ENDPOINT: '',
   // REEMPLAZAR por la ruta de tu modelo, p. ej. 'assets/pieza.glb'. null = pieza procedural.
   CUSTOM_MODEL_URL: null,
-  CONTACT_EMAIL: 'hola@fm.studio',
+  CONTACT_EMAIL: 'mome3219@gmail.com',
 };
 
 const doc = document.documentElement;

@@ -412,12 +412,12 @@ html.js-motion .draw.is-drawn::after { transform: scaleX(1); }
 html.js-motion .hero__title .line,
 html.js-motion .hero .lead,
 html.js-motion .hero .actions {
-  clip-path: inset(0 100% 0 0);
+  clip-path: inset(-12% 100% -30% 0);
   transition: clip-path 1000ms var(--ease-in-out);
 }
 html.js-motion.is-ready .hero__title .line,
 html.js-motion.is-ready .hero .lead,
-html.js-motion.is-ready .hero .actions { clip-path: inset(0 -2% 0 0); }
+html.js-motion.is-ready .hero .actions { clip-path: inset(-12% -2% -30% 0); }
 html.js-motion.is-ready .hero__title .line:nth-child(2) { transition-delay: 80ms; }
 html.js-motion.is-ready .hero__title .line:nth-child(3) { transition-delay: 140ms; }
 html.js-motion.is-ready .hero .lead { transition-delay: 320ms; transition-duration: 1200ms; }
