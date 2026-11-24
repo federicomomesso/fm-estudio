@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=Martian+Mono:wght@400&display=swap">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
 
   <script type="importmap">
     {
@@ -50,7 +50,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
-  <script type="module" src="main.js?v=3"></script>
+  <script type="module" src="main.js?v=4"></script>
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -254,37 +254,34 @@
         </div>
       </section>
 
-      <!-- 5 · POR QUÉ NOSOTROS  (REEMPLAZAR: cifras de ejemplo) -->
+      <!-- 5 · RESULTADOS: datos reales de los trabajos publicados -->
       <section class="results" id="resultados" tabindex="-1" data-stage="10" aria-labelledby="res-title">
         <div class="wrap">
           <header class="section-head">
-            <h2 id="res-title" class="draw">Qué cambia en tu web</h2>
-            <p>Medimos cada proyecto antes y después del lanzamiento. <span class="placeholder-note">Cifras de ejemplo: sustitúyelas por resultados medidos.</span></p>
+            <h2 id="res-title" class="draw">Lo que ya está funcionando</h2>
+            <p>Datos de los trabajos publicados en esta página.</p>
           </header>
 
           <dl class="metrics">
-            <div class="metric" style="--w:.72">
-              <dt>Conversión <span>visitas que piden propuesta o compran</span></dt>
+            <div class="metric" style="--w:.5">
+              <dt>Sitios en línea <span>carpintería, tienda deportiva y boliche</span></dt>
               <dd>
-                <span class="metric__value">+00 %</span>
+                <span class="metric__value">3</span>
                 <span class="cota-line" aria-hidden="true"></span>
-                <span class="tag">dato de ejemplo</span>
               </dd>
             </div>
-            <div class="metric" style="--w:.56">
-              <dt>Tiempo en página <span>media por sesión</span></dt>
+            <div class="metric" style="--w:.9">
+              <dt>Productos en un catálogo <span>con filtros y pedido por WhatsApp</span></dt>
               <dd>
-                <span class="metric__value">0,0×</span>
+                <span class="metric__value">191</span>
                 <span class="cota-line" aria-hidden="true"></span>
-                <span class="tag">dato de ejemplo</span>
               </dd>
             </div>
-            <div class="metric" style="--w:.34">
-              <dt>Carga inicial en móvil <span>hasta ver contenido principal</span></dt>
+            <div class="metric" style="--w:.2">
+              <dt>Costo de hosting por mes <span>publicados en Cloudflare y Netlify, plan gratuito</span></dt>
               <dd>
-                <span class="metric__value">0,0 s</span>
+                <span class="metric__value">$ 0</span>
                 <span class="cota-line" aria-hidden="true"></span>
-                <span class="tag">dato de ejemplo</span>
               </dd>
             </div>
           </dl>
@@ -315,13 +312,13 @@
               <input id="f-company" name="empresa" type="text" autocomplete="organization">
             </div>
             <div class="field">
-              <label for="f-budget">Presupuesto aproximado</label>
-              <select id="f-budget" name="presupuesto">
-                <option value="">Elige un rango</option>
-                <option>Menos de 10.000 €</option>
-                <option>10.000 – 25.000 €</option>
-                <option>25.000 – 50.000 €</option>
-                <option>Más de 50.000 €</option>
+              <label for="f-budget">Qué tipo de web</label>
+              <select id="f-budget" name="proyecto">
+                <option value="">Elige una opción</option>
+                <option>Landing page</option>
+                <option>Catálogo con pedido por WhatsApp</option>
+                <option>Web completa del negocio</option>
+                <option>Tienda online</option>
                 <option>Aún no lo sé</option>
               </select>
             </div>

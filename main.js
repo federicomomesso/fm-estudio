@@ -628,7 +628,21 @@ function setupForm() {
     if (firstBad) { firstBad.focus(); return; }
 
     if (!CONFIG.FORM_ENDPOINT) {
-      status.textContent = 'Modo demostración: el formulario aún no está conectado, así que no se ha enviado nada. Configura FORM_ENDPOINT en main.js.';
+      // Sin servicio de formularios: abre el correo del visitante con el mensaje listo para enviar.
+      const v = (id) => ($(`#${id}`)?.value || '').trim();
+      const budgetEl = $('#f-budget');
+      const budget = budgetEl && budgetEl.value ? budgetEl.options[budgetEl.selectedIndex].text : '';
+      const head = [
+        `Nombre: ${v('f-name')}`,
+        `Email: ${v('f-email')}`,
+        v('f-company') && `Empresa: ${v('f-company')}`,
+        budget && `Proyecto: ${budget}`,
+      ].filter(Boolean);
+      const body = `${head.join('\n')}\n\n${v('f-message')}`;
+      const subject = `Pedido de propuesta · ${v('f-company') || v('f-name')}`;
+      window.location.href = `mailto:${CONFIG.CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      status.innerHTML = `Se abrió tu correo con el mensaje listo: solo falta tocar <b>Enviar</b>. Si no se abrió, escríbenos a <a class="link" href="mailto:${CONFIG.CONTACT_EMAIL}">${CONFIG.CONTACT_EMAIL}</a>.`;
+      status.classList.add('is-ok');
       return;
     }
     const label = btn.textContent;
