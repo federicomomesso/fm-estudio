@@ -4,9 +4,9 @@ Web de FM estudio: diseño y desarrollo de sitios web, landing pages y tiendas o
 
 **Sitio:** https://fm-estudio.trono.workers.dev
 
-Una pieza 3D procedural acompaÃ±a el scroll: empieza como boceto de alambre y termina pulida al llegar al contacto.
+Una pieza 3D procedural acompaña el scroll: empieza como boceto de alambre y termina pulida al llegar al contacto.
 
-## TecnologÃ­a
+## Tecnologia
 
 - [Three.js](https://threejs.org) para la pieza 3D (geometri­a y materiales generados por codigo, sin modelos externos).
 - [GSAP](https://gsap.com) y ScrollTrigger para las animaciones ligadas al scroll.
