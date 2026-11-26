@@ -19,7 +19,7 @@ Una pieza 3D procedural acompaña el scroll: empieza como boceto de alambre y te
 python -m http.server 5173
 ```
 
-AbrÃ­ http://localhost:5173
+Abra­ http://localhost:5173
 
 ---
 
